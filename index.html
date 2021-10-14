@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeDEX</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: #ef5350"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">PokeDEX</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://pokeapi.co/" target="_blank"
+                  >PokeAPI</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container mt-4">
+      <div class="shadow-sm p-3 mb-5 bg-body rounded text-center">
+        <h2>PokeDEX</h2>
+        <p class="my-4">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Necessitatibus explicabo error sapiente velit dolorum vero suscipit
+          fugiat totam.
+        </p>
+        <p>
+          Made by
+          <a href="https://github.com/dcyar" target="_blank">JhOn Al</a> -
+          Powered by
+          <a href="https://pokeapi.co/" target="_blank">PokeAPI</a>
+        </p>
+      </div>
+      <div class="shadow-sm p-3 mb-5 bg-body rounded">
+        <form id="searchForm">
+          <div class="input-group mb-3">
+            <input
+              id="pokemonName"
+              name="pokemonName"
+              type="text"
+              class="form-control"
+              placeholder="Type pokemon name"
+              aria-label="Type pokemon name"
+              aria-describedby="button-addon2"
+            />
+            <button class="btn btn-outline-secondary" type="subsmit">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="container">
+          <div class="row" id="messages"></div>
+          <div class="row" id="pokemons-list"></div>
+          <div class="row mt-4">
+            <nav aria-label="...">
+              <ul id="pagination" class="pagination">
+                <li class="page-item disabled">
+                  <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="myModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>
