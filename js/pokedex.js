@@ -5,7 +5,7 @@ export default class Pokedex {
 
   async getAllPokemons() {
     try {
-      const response = await fetch(`${this._URI}/pokemon?limit=10`);
+      const response = await fetch(`${this._URI}/pokemon?limit=151`);
       const data = await response.json();
 
       return data.results.map((pokemon) => ({
