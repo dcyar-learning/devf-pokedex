@@ -4,11 +4,7 @@ const pokedex = new Pokedex();
 
 const pokemonList = document.getElementById('pokemons-list');
 
-window.addEventListener('load', async function () {
-  const pokemons = await pokedex.getAllPokemons();
-
-  printPokemons(pokemons);
-});
+window.addEventListener('load', loadPokemons);
 
 document.getElementById('searchForm').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -17,9 +13,9 @@ document.getElementById('searchForm').addEventListener('submit', async function 
   const messages = document.getElementById('messages');
 
   if (!searchInput) {
-    messages.innerHTML = `<div class="alert alert-danger" role="alert">
-    The name field cannot be empty!
-    </div>`
+    pokemonList.innerHTML = '';
+
+    await loadPokemons();
 
     return;
   }
@@ -40,6 +36,12 @@ document.getElementById('searchForm').addEventListener('submit', async function 
   printPokemon(pokemon);
 });
 
+async function loadPokemons() {
+  const pokemons = await pokedex.getAllPokemons();
+
+  printPokemons(pokemons);
+}
+
 function printPokemons(pokemons) {
   pokemons.forEach(printPokemon)
 }
@@ -50,9 +52,14 @@ async function printPokemon(p) {
   const pokemonCardElement = document.createElement('div');
   pokemonCardElement.classList.add('col-12', 'col-sm-12', 'col-md-4', 'col-lg-3', 'my-2');
 
+  const types = pokemon.types.map(t => t.type.name);
+
+  const bgColor = types.includes('grass') ? '#B8E3CF' : (types.includes('fire') ? '#FCEDC2' : (types.includes('water') ? '#DCEBFF' : (types.includes('bug') ? '#c5d3af' : (types.includes('poison') ? '#c5afd3' : (types.includes('ground') ? '#d3bdaf' : (types.includes('normal') ? '#e5e5e5' : (types.includes('electric') ? '#fdffba' : (types.includes('fairy') ? '#d1afd3' : (types.includes('fighting') ? '#afd3d3' : (types.includes('ice') ? '#bafffa' : (types.includes('psychic') ? '#fff3ba' : (types.includes('dragon') ? '#ffbada' : (types.includes('rock') ? '#c1b5a2' : (types.includes('flying') ? '#a5e5d6' : '#000000'))))))))))))));
+
   pokemonCardElement.innerHTML = `
     <div class="card w-100" style="cursor: pointer;" data-name="${pokemon.name}">
-      <div style="background: rgb(34,193,195); background: linear-gradient(77deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);">
+      <div style="background: ${bgColor};">
+        <span class="py-1 px-2 position-absolute top-0 end-0 fs-6 fw-bold">${pokemon.order}</span>
         <img
           src="${pokemon.sprites.front_default}"
           class="card-img-top"
@@ -60,11 +67,10 @@ async function printPokemon(p) {
         />
       </div>
       <div class="card-body">
-        <h5 class="card-title text-capitalize">${pokemon.name}</h5>
+        <h5 class="card-title text-capitalize text-center">${pokemon.name}</h5>
       </div>
       <ul class="list-group list-group-flush">
-      <li class="list-group-item"><strong>Order:</strong> ${pokemon.order}</li>
-        <li class="list-group-item"><strong>Type:</strong> ${(pokemon.types.map(type => ' ' + type.type.name))}</li>
+        <li class="list-group-item text-center">${types.map(type => `<h5 class="d-inline px-2"><span class="badge rounded-pill text-secondary" style="background-color: ${(type == 'grass' ? '#B8E3CF' : (type == 'fire' ? '#FCEDC2' : (type == 'water' ? '#DCEBFF' : (type == 'bug' ? '#c5d3af' : (type == 'poison' ? '#c5afd3' : (type == 'ground' ? '#d3bdaf' : (type == 'normal' ? '#e5e5e5' : (type == 'electric' ? '#fdffba' : (type == 'fairy' ? '#d1afd3' : (type == 'fighting' ? '#afd3d3' : (type == 'ice' ? '#bafffa' : (type == 'psychic' ? '#fff3ba' : (type == 'dragon' ? '#ffbada' : (type == 'rock' ? '#c1b5a2' : (type == 'flying' ? '#a5e5d6' : '#000000')))))))))))))))};">${type}</span></h5>`).join(' ')}</li>
       </ul>
     </div>
   `;

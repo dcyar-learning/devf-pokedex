@@ -15,11 +15,13 @@
   <body>
     <header>
       <nav
-        class="navbar navbar-expand-lg navbar-dark"
-        style="background-color: #ef5350"
+        class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #ffcb05"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">PokeDEX</a>
+          <a class="navbar-brand" href="#">
+            <img src="./img/logo-dex.png" style="width: 120px" alt="pokemon" />
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -34,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
+                <a class="nav-link active" aria-current="page" href="/"
                   >Inicio</a
                 >
               </li>
@@ -44,23 +46,21 @@
                 >
               </li>
             </ul>
+            <p>
+              Made by
+              <a href="https://github.com/dcyar" target="_blank">JhOn Al</a> -
+              Powered by
+              <a href="https://pokeapi.co/" target="_blank">PokeAPI</a>
+            </p>
           </div>
         </div>
       </nav>
     </header>
     <main class="container mt-4">
       <div class="shadow-sm p-3 mb-5 bg-body rounded text-center">
-        <h2>PokeDEX</h2>
+        <h2><img src="./img/logo-dex.png" alt="Pokedex" /></h2>
         <p class="my-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Necessitatibus explicabo error sapiente velit dolorum vero suscipit
-          fugiat totam.
-        </p>
-        <p>
-          Made by
-          <a href="https://github.com/dcyar" target="_blank">JhOn Al</a> -
-          Powered by
-          <a href="https://pokeapi.co/" target="_blank">PokeAPI</a>
+          Encuentra las estadisticas y detalles de los pokemons.
         </p>
       </div>
       <div class="shadow-sm p-3 mb-5 bg-body rounded">
@@ -71,12 +71,12 @@
               name="pokemonName"
               type="text"
               class="form-control"
-              placeholder="Type pokemon name"
-              aria-label="Type pokemon name"
+              placeholder="Escribe el nombre del pokemon..."
+              aria-label="Escribe el nombre del pokemon..."
               aria-describedby="button-addon2"
             />
             <button class="btn btn-outline-secondary" type="subsmit">
-              Search
+              Buscar
             </button>
           </div>
         </form>
