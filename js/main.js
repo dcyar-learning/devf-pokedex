@@ -14,6 +14,7 @@ document.getElementById('searchForm').addEventListener('submit', async function 
 
   if (!searchInput) {
     pokemonList.innerHTML = '';
+    messages.innerHTML = ``;
 
     await loadPokemons();
 

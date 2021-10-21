@@ -27,8 +27,4 @@ export default class Pokedex {
       console.log(err)
     }
   }
-
-  // get uri() {
-  //   return this._URI;
-  // }
 }
